@@ -9,14 +9,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class SocialMediaApplication {
-
-	//S3 bucket link for AWS http://p3-fe.s3-website-us-east-1.amazonaws.com/
 	@Bean
 	public WebMvcConfigurer configure() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://p3-fe.s3-website-us-east-1.amazonaws.com/").allowCredentials(true).allowedMethods("OPTIONS", "PUT", "POST", "PATCH", "DELETE", "GET");
+				registry.addMapping("/**").allowedOrigins("http://localhost:3000").allowCredentials(true).allowedMethods("OPTIONS", "PUT", "POST", "PATCH", "DELETE", "GET");
 			}
 		};
 	}
